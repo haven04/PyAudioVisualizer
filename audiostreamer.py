@@ -14,6 +14,13 @@ dic_datawidth_to_numpy_dtype = {1: numpy.uint8,
                                 4: numpy.int32}
 
 
+def split_channel(data, channel):
+    return numpy.transpose(numpy.reshape(data, (len(data)/channel, channel)))
+
+def merge_channel(data):
+    # data_size = len(data) * len(data[0])
+    return numpy.reshape(numpy.transpose(data), data.size)
+
 class AudioBuffer(ct.StoppableThread, ct.DispatcherThread):
     def read_with_blocksize(self, alist, blocksize=1):
         length = len(alist)

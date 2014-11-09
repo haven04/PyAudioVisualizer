@@ -18,7 +18,7 @@ class StoppableThread(threading.Thread):
 
     def immediate_join(self):
         self.stop()
-        super(StoppableThread, self).join()
+        self.join()
 
 
 class DispatcherThread(threading.Thread):
@@ -50,7 +50,7 @@ class StoppableProcess(multiprocessing.Process):
 
     def immediate_join(self):
         self.stop()
-        super(StoppableProcess, self).join()
+        self.join()
 
 
 class DispatcherProcess(multiprocessing.Process):
