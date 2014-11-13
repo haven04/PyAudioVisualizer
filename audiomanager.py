@@ -24,6 +24,7 @@ class AudioManager:
                                           daemon=True)
 
         self.analyzer = aa.AudioAnalyzer(blocksize=self.analyzer_blocksize,
+                                         overlap=1024,
                                          channel=self.channel,
                                          daemon=True)
 
